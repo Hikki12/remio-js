@@ -1,9 +1,12 @@
-if (!env){
-    const env = {};
-}
-
 
 // ================== SOME VARS ================
+try{ 
+  console.log("env: ", env)
+}catch(err){
+    console.log("err: ", err);
+    var env = {};
+}
+if(!env){env={}}
 const address = env.SERVER_ADDRESS || "";
 let socket = io(address);
 const session = {
