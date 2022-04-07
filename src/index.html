@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Remio | client</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
     <link rel="stylesheet" href="./css/styles.css">
@@ -41,31 +41,59 @@
         </div>
         <div class="hero-body">
             <div class="container has-text-centered">
-                <div class="columns is-vcentered">
-                    <div class="column is-5">
+                <div class="columns is-vcentered mt-3">
+                    <div class="column is-6 is-5-tablet">
                         <figure class="image is-4by3">
                             <img src="https://picsum.photos/800/600/?random" alt="Description" id="image">
                         </figure>
                     </div>
-                    <div class="column is-6 is-offset-1 box">
-                        <h1 class="title is-2">
-                            Here, your controls
-                        </h1>
-                        <h2 class="subtitle is-4">
-                            Let this cover page describe a product or service.
-                        </h2>
-                        <br>
-                        <p class="has-text-centered">
-                            <button class="button is-medium is-info is-outlined">
-                                Learn more
+                    <div class="column is-6 is-4-tablet">
+                        <div class="column is-mobile mb-5">
+                            <input 
+                                id="serverAddressInput"
+                                class="input is-info" 
+                                type="text"
+                                placeholder="http://example.com" 
+                                style="max-width:250px;"
+                            >
+                            <button class="button is-primary" id="serverConnectBtn">
+                                <i class="fa-solid fa-server"></i>
                             </button>
-                        </p>
+                        </div>
+                        <div class="columns is-mobile is-centered">
+                            <button class="led mx-2" id="ledSocket"></button>
+                            <p>Socket</p>
+                            <button class="led mx-4" id="ledSerial"></button>
+                            <p class="mr-3">Serial</p>
+                        </div>
+                        <div class="column">
+                            <div class="select">
+                                <select id="portSelect">
+                                  <option>Choose a Port</option>
+                                </select>
+                            </div>
+                            <button class="button is-light" id="connectSerialBtn">
+                                <i class="fa-solid fa-link"></i>
+                            </button>
+                            <button class="button is-light" id="updateSerialBtn">
+                                <i class="fa-solid fa-rotate"></i>
+                            </button>
+                        </div>
+                        <div class="column is-full">
+                            <button class="button is-black" id="btn1">Button 1</button>
+                        </div>
+                        <div class="column is-full">
+                            <button class="button is-black" id="btn2">Button 2</button>
+                        </div>
+                        <div class="column is-full">
+                            <button class="button is-black" id="btn3">Button 3</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="hero-foot">
+        <div class="hero-foot mt-4 mb-5">
             <div class="container">
                 <div class="tabs is-centered">
                     <ul>
@@ -79,6 +107,7 @@
     <script src="./env.js"></script>
     <script src="./js/bulma.js"></script>
     <script src="./js/components.js"></script>
+    <script src="./js/routes.js"></script>
     <script src="./js/index.js"></script>
 </body>
 
