@@ -8,6 +8,7 @@ try{
 }
 if(!env){env={}}
 const address = env.SERVER_ADDRESS || "";
+console.log("address: ", address);
 let socket = io(address);
 const session = {
     "room": "experiment-x",
@@ -48,7 +49,9 @@ function configure(socket){
         // ================ SOCKETIO EVENTS ================
     console.log("configuring...")
     socket.on("connect", () => {
+        console.log("connected: ", socket.id);
         ledSocket.setChecked(true);
+        socket.emit(JOIN_ROOM_WEB, "room-x");
     });
 
     socket.on("disconnect", () => {
