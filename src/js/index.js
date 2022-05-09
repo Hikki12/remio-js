@@ -9,7 +9,7 @@ try{
 if(!env){env={}}
 const address = env.SERVER_ADDRESS || "";
 console.log("address: ", address);
-let socket = io.connect(address, {secure: true});
+let socket = io.connect(address, {secure: false});
 const session = {
     "room": "experiment-x",
 }
@@ -89,11 +89,14 @@ serverConnectBtn.on("click", () => {
             socket.disconnect();
             socket = null;
         }else{
-            socket = io(server);
+            socket = io(server, {
+                withCredentials: false,
+                
+            });
             configure(socket);
         }
     }else{
-        socket = io(server);
+        socket = io(server, {withCredentials:false});
         configure(socket);
     }
 });
